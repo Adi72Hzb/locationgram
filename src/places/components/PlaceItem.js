@@ -8,15 +8,25 @@ import './PlaceItem.css';
 const PlaceItem = props => {
 
     const [showMap , setShowMap] = useState(false);
-    const openMapHandler = () => {
-        setShowMap(true);
-    }
-    const closeMapHandler = () => {
-        setShowMap(false);
-    }
 
+    const [showConfirmModal , setShowConfirmModal] = useState(false);
+    
+    const openMapHandler = () => setShowMap(true);
+
+    const closeMapHandler = () => setShowMap(false);
+
+    const showDeleteWarningHandler = () => {setShowConfirmModal(true)};
+
+    const cancelDeleteHandler = () => {setShowConfirmModal(false);}
+
+    const confirmDeleteHandler = () => {
+        setShowConfirmModal(false);
+        console.log('DELETING.....');
+    }
+    
     return <>
-        <Modal show={showMap} 
+        <Modal 
+            show={showMap} 
             onCancel={closeMapHandler} 
             header={props.address} 
             contentClass="place-item__modal-content"
@@ -26,6 +36,24 @@ const PlaceItem = props => {
             <div className='map-container'>
                 <h2>THE MAP!</h2>
             </div>
+        </Modal>
+
+        <Modal
+            show={showConfirmModal}
+            onCancel={cancelDeleteHandler}
+            header="Are You Sure" 
+            footerClass="place-item__modal-actions" 
+            footer={
+                <>
+                  <Button inverse onClick={cancelDeleteHandler}>CANCEL</Button>  
+                  <Button danger onClick={confirmDeleteHandler}>DELETE</Button>  
+                </>
+            }
+            >
+            <p>
+                Do YOU want to PROCEEEEEEED and delete this place???
+                Please Note that YOU CANT UNDO IT.
+            </p>
         </Modal>
 
         <li className="place-item">
@@ -41,7 +69,7 @@ const PlaceItem = props => {
                 <div className="place-item__actions">
                     <Button inverse onClick={openMapHandler}>VIEW ON MAP</Button>
                     <Button to={`/places/${props.id}`}>EDIT</Button>
-                    <Button danger>DELETE</Button>
+                    <Button danger onClick={showDeleteWarningHandler}>DELETE</Button>
                 </div>
             </Card>
         </li>
