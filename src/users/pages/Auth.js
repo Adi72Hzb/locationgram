@@ -97,7 +97,7 @@ const Auth = () => {
 
                 }
 
-            {!isLoginMode && <ImageUpload center id="image" onInput={inputHandler}/>}
+            {!isLoginMode && <ImageUpload center id="image" onInput={inputHandler} errorText="Please Upload Ur DP."/>}
 
             <Input 
             element="input" 
