@@ -17,6 +17,9 @@
 .env.development.local
 .env.test.local
 .env.production.local
+.env
+.env.REACT_APP_BACKEND_URL
+.env.REACT_APP_ASSET_URL
 
 npm-debug.log*
 yarn-debug.log*
