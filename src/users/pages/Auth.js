@@ -62,7 +62,7 @@ const Auth = () => {
                     password : formState.inputs.password.value
                 }),{'Content-Type' :'application/json'});
 
-                auth.login(responseData.user.id);
+                auth.login(responseData.userId , responseData.token);
             }catch (err){}
         }else{
             try{
@@ -73,7 +73,7 @@ const Auth = () => {
                 formData.append('image' , formState.inputs.image.value);
                 console.log(FormData);
                 const responseData = await sendRequest('http://localhost:5000/api/users/signup', 'POST' , formData )
-                auth.login(responseData.user.id);
+                auth.login(responseData.userId , responseData.token);
             }catch (err){}
         }
     };
