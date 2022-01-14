@@ -69,6 +69,7 @@ const NewPlace = () =>{
                 {isLoading && <LoadingSpinner asOverlay />}
                 <Input 
                     id="title"
+                    placeholder="Title"
                     element="input" 
                     type="text" 
                     label="Title" 
@@ -78,21 +79,23 @@ const NewPlace = () =>{
                 />
                 <Input 
                     id="description"
-                    element="textarea"  
-                    label="Description" 
+                    placeholder="Description" 
+                    element="input"  
+                    label="Description"
                     validators={[VALIDATOR_MINLENGTH(5)]}  
                     errorText="Please Enter a Valid Description(Atleast 5 Characters)."
                     onInput={inputHandler} 
                 />
                 <Input 
                     id="address"
+                    placeholder="Address"
                     element="input"  
                     label="Address" 
                     validators={[VALIDATOR_REQUIRE()]}  
                     errorText="Please Enter a address."
                     onInput={inputHandler} 
                 />
-                <ImageUpload id="image" onInput={inputHandler} errorText="Please Insert An Image"/>
+                <ImageUpload id="image" onInput={inputHandler} errorText="" imageText="for Location" imageType="Pic"/>
 
                 <Button type="submit" disabled={!formState.isValid}>
                     ADD PLACE 
