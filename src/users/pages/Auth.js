@@ -81,7 +81,8 @@ const Auth = () => {
         <ErrorModal error={error} onClear={clearError}/>
         <Card className="authentication">
         {isLoading && <LoadingSpinner asOverlay/>}
-        <h2>Login Required</h2>
+        {isLoginMode && <h2>Login Required</h2>}
+        {!isLoginMode && <h2>Signup Required</h2>}
         <hr />  
         <form onSubmit={authSubmitHandler}>
             {!isLoginMode && (
@@ -89,7 +90,8 @@ const Auth = () => {
                     element="input" 
                     id="name" 
                     type="text" 
-                    label="Your Name" 
+                    label="Your Name"
+                    placeholder="Your Name"
                     validators={[VALIDATOR_REQUIRE()]}
                     errorText="Please Enter A Name."
                     onInput={inputHandler}
@@ -97,13 +99,14 @@ const Auth = () => {
 
                 }
 
-            {!isLoginMode && <ImageUpload center id="image" onInput={inputHandler} errorText="Please Upload Ur DP."/>}
+            {!isLoginMode && <ImageUpload center id="image" onInput={inputHandler} errorText="" imageText="as DP" imageType="DP"/>}
 
             <Input 
             element="input" 
             id="email" 
             type="email"
-            label="E-Mail" 
+            label="E-Mail"
+            placeholder="Email address"
             validators={[VALIDATOR_EMAIL()]}
             errorText="Please enter a valid Email Address."
             onInput={inputHandler}
@@ -112,7 +115,8 @@ const Auth = () => {
             element="input" 
             id="password" 
             type="password"
-            label="Password" 
+            label="Password"
+            placeholder="Password"
             validators={[VALIDATOR_MINLENGTH(6)]}
             errorText="Please enter a valid Password , atleast of 6 Characters."
             onInput={inputHandler}

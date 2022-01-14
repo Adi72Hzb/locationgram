@@ -20,6 +20,8 @@
     border: 1px solid #ccc;
     background: #f8f8f8;
     padding: 0.15rem 0.25rem;
+    font-size: 22px;
+    border-radius: 10px;
   }
   
   .form-control input:focus,

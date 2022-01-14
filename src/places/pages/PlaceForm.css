@@ -3,10 +3,14 @@
     list-style: none;
     margin: 0 auto;
     padding: 1rem;
-    width: 90%;
+    width: 25%;
     max-width: 40rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     border-radius: 6px;
-    background: white;
+    /* background-image: url("../../images/newPlaceBackground.jpg"); */
+    /* background: rgb(255, 255, 255); */
+    background: rgba(0, 0, 0, 0.7) url("../../images/newPlaceBackground2.jpg");
+    background-blend-mode: darken;
+    background-size: cover;
   }
   
