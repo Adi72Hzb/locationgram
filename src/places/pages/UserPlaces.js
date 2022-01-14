@@ -33,7 +33,7 @@ const UserPlaces = () =>{
         <div className="center">
             <LoadingSpinner/>
             </div> }
-        {!isLoading && loadedPlaces && <PlaceList items={loadedPlaces} onDeletePlace={placeDeletedHandler}/>}
+        {!isLoading && loadedPlaces && <PlaceList items={loadedPlaces} currentUser={userId} onDeletePlace={placeDeletedHandler}/>}
         </>
 };
 
